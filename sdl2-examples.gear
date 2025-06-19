@@ -1,0 +1,16 @@
+@name sdl2-examples
+@version 1.0
+@arch noarch
+@buildpriority 0
+sdl2-examples
+
+gear:git https://github.com/xyproto/sdl2-examples.git %version
+
+prep:git
+%setup -q -n sdl2-examples-%version
+tar -czf %name-%version.tar.gz sdl2-examples-%version/
+mv %name-%version.tar.gz %SOURCE0
+
+build:%make_build
+
+install:%make_install
